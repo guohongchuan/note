@@ -54,15 +54,15 @@
 
 1. 先umount挂载的目录
 
-   umount  /data
+   `umount  /data`
 
 2. 检查逻辑卷的剩余空间
 
-   e2fsck -f /dev/myvg/mylv
+   `e2fsck -f /dev/myvg/mylv`
 
 3. 重新定义文件系统的大小
 
-   resize2fs /dev/myvg/mylv 1G
+   `resize2fs /dev/myvg/mylv 1G`
 
 4. 重新定义逻辑卷的大小
 
@@ -80,4 +80,3 @@
 4. vgremove myvg
 5. pvremove /dev/sdb1 /dev/sdb2 /dev/sdb3
 
-![](http://note.youdao.com/noteshare?id=b6ea120595eecc514e9a7351e6d8ec2a&sub=9ADFBE24BE2B46F482D60E3811F0C94C)
