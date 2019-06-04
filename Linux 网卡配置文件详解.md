@@ -5,9 +5,9 @@
 ```shell
 DEVICE=eth0               #网络接口名称
 TYPE=Ethernet             #网络接口类型
-ONBOOT=                   #系统启动时，是否激活  yes：系统启动时激活  no：系统启动时不激活
+ONBOOT=yes                #系统启动时，是否激活  yes：系统启动时激活  no：系统启动时不激活
 IPADDR=192.168.30.128     #IP地址
-BOOTPROTO=                #系统启动地址协议 none：不使用启动地址协议 dhcp：DHCP动态地址协议 static：静态地址协议 bootp：BOOTP协议
+BOOTPROTO=static          #系统启动地址协议 none：不使用启动地址协议 dhcp：DHCP动态地址协议 static：静态地址协议 bootp：BOOTP协议
 NETMASK=255.255.255.0     #子网掩码
 GATEWAY=                  #网关地址
 BROADCAST=                #广播地址
