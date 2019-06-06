@@ -273,6 +273,8 @@
    resize2fs 1.41.12 (17-May-2010)
    Resizing the filesystem on /dev/myvg/mylvm to 262144 (4k) blocks.
    The filesystem on /dev/myvg/mylvm is now 262144 blocks long.
+   注意：如果是ext文件系统，使用resize2fs命令
+   	 如果是xfs文件系统，使用xfs_growfs命令
    ```
 
    
