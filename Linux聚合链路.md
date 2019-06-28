@@ -1,10 +1,10 @@
 ### Linux 聚合链路
 
-什么是聚合链路？
+**什么是聚合链路？**
 
 链路聚合，是指将多个物理网络端口捆绑在一起，成为一个逻辑网络端口，目的是实现增加网络带宽，负载均衡，主备等功能。网卡的链路聚合一般常用的有"bond"和"team"两种模式，"bond"模式最多可以添加两块网卡，"team"模式最多可以添加八块网卡。一般用team模式。
 
-如何配置？
+**如何配置？**
 
 我们以两张网卡 eth0 eth1,team模式,主备策略为例在RHEL7系统下配置网卡链路聚合
 
@@ -29,24 +29,27 @@ TEAM_MASTER="team0"   #逻辑网卡的名称
 
 ifcfg-eth2
 
+```shell
 DEVICE="eth2"
 DEVICETYPE="TeamPort"
 ONBOOT="yes"
 TEAM_MASTER="team0"
+```
 
 ifcfg-team0
 
+```shell
 DEVICE="team0"    #逻辑网卡的名称
 DEVICETYPE="Team"
 ONBOOT="yes"
 BOOTPROTO=none
 NETMASK=255.255.255.0
-IPADDR=192.168.23.11   
+IPADDR=192.168.23.11 
 TEAM_CONFIG='{"runner": {"name": "activebackup"}}'   
-
 #聚合链路的策略，共四种。广播容错(broadcast)，轮询（roundrobin），主备（activebackup），负载均衡（loadbalance）
+```
 
-重启网络服务  sytemctl restart network
+重启网络服务  `sytemctl restart network`
 
 ifconfig 查看网络信息，会发现eth1，eth2，team0的mac地址是相同的。
 
@@ -62,7 +65,7 @@ ifconfig 查看网络信息，会发现eth1，eth2，team0的mac地址是相同�
 
 关闭networkmanager
 
-systemctl stop NetworkManager
+`systemctl stop NetworkManager`
 
 
 
