@@ -51,25 +51,21 @@ TEAM_CONFIG='{"runner": {"name": "activebackup"}}'
 
 重启网络服务  `sytemctl restart network`
 
-ifconfig 查看网络信息，会发现eth1，eth2，team0的mac地址是相同的。
+ifconfig 查看网络信息，如果eth1，eth2，team0的mac地址是相同，证明配置成功。
 
-如果需要新增一张网卡，比如eth3，新增配置文件 ifcfg-eth3 然后重启网络服务即可
+如果需要新增一张网卡，比如eth3，新增配置文件 ifcfg-eth3 然后重启网络服务即可，删除同理。
 
-常见问题
+**常见问题**
 
-重启网络服务可能会失败，常见的问题有
+1. 重启网络服务可能会失败，常见的问题有
 
-配置文件名称 ifcfg-设备名称 设备名称要与配置文件内容 DEDVICE字段一致
+2. 配置文件名称 ifcfg-设备名称 设备名称要与配置文件内容 DEDVICE字段一致
 
-多次修改DEVICE，可能会导致mac地址冲突，找到有问题的网卡并关闭，ifconfig 设备名称  down，然后再重启网络服务
+3. 多次修改DEVICE，可能会导致mac地址冲突，找到有问题的网卡并关闭，ifconfig 设备名称  down，然后再重启网络服务
 
-关闭networkmanager
+4. 关闭networkmanager再重启网络服务
 
-`systemctl stop NetworkManager`
-
-
-
-
+   `systemctl stop NetworkManager`
 
 
 
